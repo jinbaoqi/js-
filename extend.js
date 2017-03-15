@@ -1,10 +1,12 @@
-var extend = (function(){
-    var fn = function(){}
-
-    return function(){
-        fn.prototype = P.prototype;
-        C.prototype = new fn();
-        C.uber = P;
-        C.prototype.constructor=C;
+function extend(Parent,Child){
+    var i
+    Child = Child||{}
+    for(i in Parent){
+        if(Parent.hasOwnProperty(i)){
+            Child[i]=Parent[i]
+        }
     }
-})();
+    return Child
+
+
+}
